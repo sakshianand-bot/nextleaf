@@ -1,0 +1,9 @@
+@import 'tailwindcss';
+
+@theme {
+  --color-cannabis-green: #2d5016;
+  --color-cannabis-light: #4a7c2e;
+  --color-cannabis-accent: #8fbc8f;
+  --color-cannabis-brown: #8b4513;
+  --color-cannabis-light-brown: #d2691e;
+}
