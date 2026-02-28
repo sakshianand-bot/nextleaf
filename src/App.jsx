@@ -518,11 +518,13 @@ function App() {
           <div className="grid md:grid-cols-4 gap-8 mb-8">
             <div>
               <div className="flex items-center mb-4">
-                <img 
-                  src="/1000000472-removebg-preview.png"
-                  alt="Next Leaf Logo"
-                  className="w-16 h-16 object-contain"
-                />
+                <div className="p-3 rounded-2xl backdrop-blur-md" style={{ backgroundColor: 'rgba(255,255,255,0.15)' }}>
+                  <img 
+                    src="/1000000472-removebg-preview.png"
+                    alt="Next Leaf Logo"
+                    className="w-24 h-24 object-contain"
+                  />
+                </div>
               </div>
               <p className="text-white/60 text-sm">
                 Premium organic cannabis extracts.
