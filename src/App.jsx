@@ -4,12 +4,25 @@ import './index.css'
 function App() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [scrollY, setScrollY] = useState(0)
+  const [lastScrollY, setLastScrollY] = useState(0)
+  const [headerVisible, setHeaderVisible] = useState(true)
 
   useEffect(() => {
-    const handleScroll = () => setScrollY(window.scrollY)
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY
+      setScrollY(currentScrollY)
+      
+      if (currentScrollY > lastScrollY && currentScrollY > 100) {
+        setHeaderVisible(false)
+      } else {
+        setHeaderVisible(true)
+      }
+      
+      setLastScrollY(currentScrollY)
+    }
     window.addEventListener('scroll', handleScroll, { passive: true })
     return () => window.removeEventListener('scroll', handleScroll)
-  }, [])
+  }, [lastScrollY])
 
   // Olive & Avery color palette
   const colors = {
@@ -42,7 +55,7 @@ function App() {
       id: 2,
       name: '6-Star Ice Hash',
       price: '$55.00',
-      image: 'https://images.unsplash.com/photo-1618331835717-801e976710b2?w=400&h=500&fit=crop',
+      image: 'https://i.pinimg.com/1200x/03/99/65/039965f798e2a24f8252e3ce45a58706.jpg',
       tag: 'New'
     },
     {
@@ -72,7 +85,7 @@ function App() {
     <div className="min-h-screen" style={{ backgroundColor: colors.cream }}>
       {/* Elegant Header */}
       <header 
-        className="fixed top-0 left-0 right-0 z-50 transition-all duration-500"
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 transform ${headerVisible ? 'translate-y-0' : '-translate-y-full'}`}
         style={{ 
           backgroundColor: scrollY > 50 ? 'rgba(245, 242, 237, 0.95)' : 'transparent',
           backdropFilter: scrollY > 50 ? 'blur(10px)' : 'none'
@@ -81,19 +94,12 @@ function App() {
         <nav className="container mx-auto px-6 py-4">
           <div className="flex items-center justify-between">
             {/* Logo */}
-            <div className="flex items-center space-x-3">
-              <div 
-                className="w-10 h-10 rounded-full flex items-center justify-center"
-                style={{ backgroundColor: colors.sage }}
-              >
-                <span className="text-white font-serif text-lg">NL</span>
-              </div>
-              <span 
-                className="font-serif text-xl tracking-wide"
-                style={{ color: colors.charcoal }}
-              >
-                Next Leaf
-              </span>
+            <div className="flex items-center">
+              <img 
+                src="/1000000472-removebg-preview.png"
+                alt="Next Leaf Logo"
+                className="w-20 h-20 object-contain"
+              />
             </div>
 
             {/* Navigation */}
@@ -291,8 +297,8 @@ function App() {
                     style={{ backgroundColor: colors.sage }}
                   >
                     <img 
-                      src="https://images.unsplash.com/photo-1603909223429-69bb7101f420?w=400&h=500&fit=crop&q=80"
-                      alt="Cannabis plant"
+                      src="https://i.pinimg.com/1200x/53/b5/ef/53b5efb2a3c01e3c9c1f27dc16cef785.jpg"
+                      alt="Premium cannabis extract"
                       className="w-full h-full object-cover opacity-90"
                     />
                   </div>
@@ -301,8 +307,8 @@ function App() {
                     style={{ backgroundColor: colors.sageLight }}
                   >
                     <img 
-                      src="https://images.unsplash.com/photo-1543642178-9b3e6f9e9c76?w=400&h=500&fit=crop&q=80"
-                      alt="Cannabis leaves"
+                      src="https://i.pinimg.com/1200x/13/13/2b/13132bd6df5949e4386defdbf247a207.jpg"
+                      alt="Cannabis extract product"
                       className="w-full h-full object-cover opacity-90"
                     />
                   </div>
@@ -511,14 +517,12 @@ function App() {
         <div className="container mx-auto max-w-6xl">
           <div className="grid md:grid-cols-4 gap-8 mb-8">
             <div>
-              <div className="flex items-center space-x-2 mb-4">
-                <div 
-                  className="w-8 h-8 rounded-full flex items-center justify-center"
-                  style={{ backgroundColor: colors.sage }}
-                >
-                  <span className="text-white font-serif text-sm">NL</span>
-                </div>
-                <span className="text-white font-serif">Next Leaf</span>
+              <div className="flex items-center mb-4">
+                <img 
+                  src="/1000000472-removebg-preview.png"
+                  alt="Next Leaf Logo"
+                  className="w-16 h-16 object-contain"
+                />
               </div>
               <p className="text-white/60 text-sm">
                 Premium organic cannabis extracts.
