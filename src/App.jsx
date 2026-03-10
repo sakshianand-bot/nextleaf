@@ -48,29 +48,29 @@ function App() {
       id: 1,
       name: 'Premium Live Rosin',
       price: '$65.00',
-      image: 'https://images.unsplash.com/photo-1603909223429-69bb7101f420?w=400&h=500&fit=crop',
+      image: 'https://i.pinimg.com/1200x/6b/3c/34/6b3c341670c8860414f7982a74ebe5f8.jpg',
       tag: 'Best Seller'
     },
     {
       id: 2,
-      name: '6-Star Ice Hash',
-      price: '$55.00',
-      image: 'https://i.pinimg.com/1200x/03/99/65/039965f798e2a24f8252e3ce45a58706.jpg',
+      name: 'Live Rosin Sauce',
+      price: '$75.00',
+      image: '/1000002375.png',
       tag: 'New'
     },
     {
       id: 3,
-      name: 'Fresh Frozen Extract',
-      price: '$70.00',
-      image: '/1000002375.png',
-      tag: null
+      name: 'Diamond Live Rosin',
+      price: '$85.00',
+      image: 'https://i.pinimg.com/1200x/58/37/4b/58374b3b5d665d38a7c4d27d99d8df8d.jpg',
+      tag: 'Premium'
     },
     {
       id: 4,
-      name: 'Full Melt Hash',
-      price: '$80.00',
-      image: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&h=500&fit=crop',
-      tag: 'Premium'
+      name: 'Live Rosin Badder',
+      price: '$70.00',
+      image: 'https://i.pinimg.com/1200x/51/81/12/51811274baa4132d1bf29367021fe6a1.jpg',
+      tag: null
     }
   ]
 
