@@ -46,31 +46,30 @@ function App() {
   const products = [
     {
       id: 1,
-      name: 'Premium Live Rosin',
+      name: 'Cannabis Flower',
       price: '$65.00',
-      image: 'https://i.pinimg.com/1200x/6b/3c/34/6b3c341670c8860414f7982a74ebe5f8.jpg',
+      image: '/1000000501.png',
       tag: 'Best Seller'
     },
     {
       id: 2,
-      name: 'Live Rosin Sauce',
+      name: 'Live Rosin',
       price: '$75.00',
       image: '/1000002375.png',
       tag: 'New'
     },
     {
       id: 3,
-      name: 'Diamond Live Rosin',
+      name: 'Fresh Frozen Bubble Hash',
       price: '$85.00',
-      image: 'https://i.pinimg.com/1200x/58/37/4b/58374b3b5d665d38a7c4d27d99d8df8d.jpg',
+      image: '/1000000503.png',
       tag: 'Premium'
     },
     {
       id: 4,
-      name: 'Live Rosin Badder',
-      price: '$70.00',
-      image: 'https://i.pinimg.com/1200x/51/81/12/51811274baa4132d1bf29367021fe6a1.jpg',
-      tag: null
+      name: 'Launching Shortly',
+      image: null,
+      tag: 'Launching Shortly'
     }
   ]
 
@@ -340,14 +339,25 @@ function App() {
             {products.map((product) => (
               <div key={product.id} className="group cursor-pointer">
                 <div 
-                  className="relative aspect-[3/4] rounded-2xl overflow-hidden mb-4"
+                  className="relative aspect-[3/4] rounded-2xl overflow-hidden mb-4 flex items-center justify-center"
                   style={{ backgroundColor: colors.creamDark }}
                 >
-                  <img 
-                    src={product.image}
-                    alt={product.name}
-                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                  />
+                  {product.image ? (
+                    <img 
+                      src={product.image}
+                      alt={product.name}
+                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                    />
+                  ) : (
+                    <div className="text-center">
+                      <p 
+                        className="text-lg font-medium"
+                        style={{ color: colors.charcoal }}
+                      >
+                        Coming Soon
+                      </p>
+                    </div>
+                  )}
                   {product.tag && (
                     <span 
                       className="absolute top-3 left-3 px-3 py-1 rounded-full text-xs tracking-wider"
@@ -359,15 +369,17 @@ function App() {
                       {product.tag}
                     </span>
                   )}
-                  <button 
-                    className="absolute bottom-3 left-3 right-3 py-3 rounded-full text-sm tracking-widest uppercase opacity-0 group-hover:opacity-100 transition-opacity"
-                    style={{ 
-                      backgroundColor: colors.charcoal,
-                      color: 'white'
-                    }}
-                  >
-                    Quick Add
-                  </button>
+                  {product.image && (
+                    <button 
+                      className="absolute bottom-3 left-3 right-3 py-3 rounded-full text-sm tracking-widest uppercase opacity-0 group-hover:opacity-100 transition-opacity"
+                      style={{ 
+                        backgroundColor: colors.charcoal,
+                        color: 'white'
+                      }}
+                    >
+                      Quick Add
+                    </button>
+                  )}
                 </div>
                 <h3 
                   className="text-sm mb-1"
